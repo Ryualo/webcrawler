@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "SPIDAR - Cyber-Arachnid Web Analyzer & Second Brain",
+  "short_name": "SPIDAR",
+  "version": "2.7.0",
+  "description": "Biomimetic web-crawler companion that walks downward in 1:1 scroll lockstep, highlights key phrases with its legs, builds a persistent Second Brain Neural Graph, and supports multi-provider AI configuration.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "options_page": "options.html",
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "SPIDAR — Cyber-Arachnid Web Analyzer & Second Brain",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "index.html",
+        "popup.html",
+        "options.html",
+        "assets/*",
+        "styles.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
